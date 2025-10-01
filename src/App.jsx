@@ -4,9 +4,14 @@ import SectionCard from "./assets/components/SectionCard";
 import Header from "./assets/components/Header";
 import ContainerBorder from "./assets/components/ContainerBorder";
 import Timer from "./assets/components/Timer";
-import { Clock4, Play } from "lucide-react";
+import Button from "./assets/components/Button";
+import { Clock4, Play, Coffee } from "lucide-react";
+import { useState } from "react";
+import WorkingTimer from "./assets/components/WorkingTimer";
 
 function App() {
+  const [status, setStatus] = useState("Inativo");
+
   return (
     <>
       <div className="bg-black w-screen min-h-screen">
@@ -15,7 +20,7 @@ function App() {
 
           <section className="p-6 flex justify-center space-x-4">
             <div className="flex flex-wrap justify-center gap-4">
-              <SectionCard />
+              <SectionCard status={status} />
             </div>
           </section>
 
@@ -30,15 +35,46 @@ function App() {
                 <div className="flex flex-col text-center items-center p-8 gap-1">
                   {/* Tempo Real */}
                   <Timer />
+                  <div
+                    className={`w-fit p-1 rounded-sm text-xs mt-4 ${
+                      status === "Inativo"
+                        ? "bg-stone-900"
+                        : "bg-[#499537] text-white "
+                    }`}
+                  >
+                    {status === "Inativo" ? "Inativo" : "Trabalhando"}
+                  </div>
+
+                  {/* Tempo trabalhado */}
+                  <WorkingTimer enable={status === "Ativo"} />
+
+                  {/* Button iniciar expediente */}
+                  {status === "Inativo" && (
+                    <Button
+                      backgroundColor="bg-[#499537]"
+                      ClickOn={() => {
+                        setStatus(status === "Ativo" ? "Inativo" : "Ativo");
+                      }}
+                    >
+                      <Play size={16} />
+                      Iniciar Expediente
+                    </Button>
+                  )}
+
+                  {/* Button Iniciar Intervalo */}
+
+                  <Button backgroundColor="bg-black border border-neutral-700">
+                    <Coffee size={16} />
+                    Iniciar Intervalo
+                  </Button>
+
+                  {/* Button Finalizar expediente */}
+                  <Button backgroundColor="bg-red-500 border border-neutral-700">
+                    <Coffee size={16} />
+                    Finalizar Expediente
+                  </Button>
 
                   
-                  <div className="bg-stone-900 w-fit p-1 rounded-sm text-sm mt-4">
-                    Inativo
-                  </div>
-                  <button className="bg-[#499537] w-full h-10 mt-4 rounded-sm font-semibold text-white flex gap-2 items-center justify-center text-sm">
-                    <Play size={16} />
-                    Iniciar Expediente
-                  </button>
                 </div>
               </div>
             </ContainerBorder>

@@ -1,7 +1,7 @@
 import Card from "./Card";
 import { Clock4, TrendingUp, Loader, Calendar } from "lucide-react";
 
-const SectionCard = () => {
+const SectionCard = ({status}) => {
   return (
     <>
       {/* Horas hoje */}
@@ -15,7 +15,7 @@ const SectionCard = () => {
       </Card>
 
       {/*Status */}
-      <Card background="bg-[#3d2100]" text="Status" description="Inativo">
+      <Card background="bg-[#3d2100]" text="Status" description={status}>
         <Loader size={20} color="oklch(66.6% 0.179 58.318)" />
       </Card>
 
