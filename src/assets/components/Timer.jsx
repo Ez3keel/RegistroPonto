@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-
-const Timer = () => {
-  const [horaAtual, setHoraAtual] = useState("00:00:00");
+const Timer = ({ horaAtual, setHoraAtual }) => {
+  // const [horaAtual, setHoraAtual] = useState("00:00:00");
 
   useEffect(() => {
     // Função para atualizar a hora
