@@ -11,7 +11,9 @@ const WorkingTimer = ({
   text,
   startInterval,
   handleExitWork,
-  exitWork
+  exitWork,
+  endInterval,
+
 }) => {
   return (
     <>
@@ -37,9 +39,13 @@ const WorkingTimer = ({
       </Button>
 
       {/* Marca o registro de entrada */}
-      <RegisterOfPonto entrada={entrada} startInterval={startInterval}
-      exitWork={exitWork} />
-    </>
+      <RegisterOfPonto 
+        entrada={entrada} 
+        startInterval={startInterval}
+        endInterval={endInterval} 
+        exitWork={exitWork} 
+      />
+          </>
   );
 };
 

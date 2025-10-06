@@ -24,13 +24,7 @@ function App() {
     Trabalhando: "bg-[#499537] text-white",
   };
 
-  <div
-    className={`w-fit p-1 rounded-sm text-xs mt-4 ${
-      statusColors[status] || "bg-gray-300"
-    }`}
-  >
-    {status}
-  </div>;
+
 
   const handleIniciarExpediente = () => {
     const agora = new Date();
@@ -116,6 +110,8 @@ function App() {
                         startInterval={startInterval}
                         handleExitWork={handleExitWork}
                         exitWork={exitWork}
+                        handleEndInterval={handleEndInterval}
+                        endInterval={endInterval}
                       />
                     </>
                   )}

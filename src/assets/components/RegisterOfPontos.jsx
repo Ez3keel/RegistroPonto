@@ -1,6 +1,8 @@
+import { Pencil } from 'lucide-react';
+
 const RegisterOfPonto = ({ entrada, startInterval, endInterval, exitWork }) => {
-  // Pega somente as horas e os minutos do horário atual
-  const horaStartIntervalo = startInterval.substring(0, 5);
+  // Pega somente as horas e os minutos do horário atual com verificação
+  const horaStartIntervalo = startInterval ? startInterval.substring(0, 5) : "";
 
   console.log(endInterval);
 
@@ -8,7 +10,12 @@ const RegisterOfPonto = ({ entrada, startInterval, endInterval, exitWork }) => {
     <div className="rounded-xl bg-[#141413] p-4 mt-4 flex-1 min-w-[15rem] max-w-[20rem] ">
       <div className="flex justify-between">
         <div className="text-sm">Entrada:</div>
-        <div className="text-white text-base">{entrada}</div>
+        <div className="text-white text-base flex items-center gap-2
+        ">
+          <button className='cursor-pointer' onClick={ () => {
+            alert('Função de editar horário ainda não implementada.')
+          }}  ><Pencil size={16} /></button>
+          {entrada}</div>
       </div>
 
       {horaStartIntervalo && (
