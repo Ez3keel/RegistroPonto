@@ -29,7 +29,7 @@ const Timer = ({ horaAtual, setHoraAtual }) => {
       <div className="text-[#7a97fb] font-bold text-4xl h-full w-full">
         {horaAtual}
       </div>
-      <div className="text-[0.8rem]">
+      <div className="text-[0.8rem] text-neutral-500">
         {/* Atualiza a data do dia atual */}
         {new Date().toLocaleDateString("pt-BR")}
       </div>

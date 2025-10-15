@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { Calendar } from "lucide-react";
 
 const Header = () => {
-  const dataAtual = new Date();
   const [diaSemana, setDiaSemana] = useState("");
 
   useEffect(() => {
+    const dataAtual = new Date();
     const days = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta"];
 
     const AllMonths = [
@@ -33,18 +33,18 @@ const Header = () => {
         Month
       ].toLowerCase()} de ${year} `
     );
-  });
+  }, []);
 
   return (
     <>
       <header className="flex justify-between items-center p-8">
         <div className="space-y-1.5">
           <h1 className="text-white text-3xl font-bold ">Controle de Ponto</h1>
-          <p className="text-shadow-gray-500">
+          <p className="text-muted-foreground">
             Gerencie seus horários de trabalho de forma eficiente
           </p>
         </div>
-        <p className="flex gap-2 items-center justify-center text-sm">
+        <p className="flex gap-2 items-center justify-center text-sm text-muted-foreground">
           <Calendar size={16} />
           {diaSemana}
         </p>
