@@ -2,16 +2,29 @@ import ContainerBorder from "./ContainerBorder";
 import Timer from "./Timer";
 import Button from "./Button";
 import { Clock4, Play, Pause } from "lucide-react";
-import { useState } from "react";
 import WorkingTimer from "./WorkingTimer";
 import Interval from "./Interval";
 
-const AutomaticRegistration = ({ menu, status, setStatus }) => {
-  const [entrada, setEntrada] = useState("");
-  const [horaAtual, setHoraAtual] = useState("");
-  const [startInterval, setStartInterval] = useState("");
-  const [endInterval, setEndInterval] = useState("");
-  const [exitWork, setExitWork] = useState("");
+const AutomaticRegistration = ({
+  menu,
+  status,
+  setStatus,
+  entrada,
+  setEntrada,
+  horaAtual,
+  setHoraAtual,
+  startInterval,
+  setStartInterval,
+  endInterval,
+  setEndInterval,
+  exitWork,
+  setExitWork,
+}) => {
+  // const [entrada, setEntrada] = useState("");
+  // const [horaAtual, setHoraAtual] = useState("");
+  // const [startInterval, setStartInterval] = useState("");
+  // const [endInterval, setEndInterval] = useState("");
+  // const [exitWork, setExitWork] = useState("");
 
   const statusColors = {
     Inativo: "bg-stone-900 text-neutral-200",

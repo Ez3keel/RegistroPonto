@@ -7,10 +7,38 @@ import AutomaticRegistration from "./assets/components/AutomaticRegistration";
 import { useState } from "react";
 
 import ManualRegistration from "./assets/components/ManualRegistration";
+import ContainerBorder from "./assets/components/ContainerBorder";
+import Label from "./assets/components/Label";
 
 function App() {
   const [status, setStatus] = useState("Inativo");
   const [menu, setMenu] = useState("auto"); //auto - manual - config
+
+  const [entrada, setEntrada] = useState("");
+  const [horaAtual, setHoraAtual] = useState("");
+  const [startInterval, setStartInterval] = useState("");
+  const [endInterval, setEndInterval] = useState("");
+  const [exitWork, setExitWork] = useState("");
+
+  const labels = [
+    { text: "Horas de Trabalho por Dia", type: "text", field: "date" },
+    { text: "Intervalo Mínimo (minutos)", type: "text", field: "entrada" },
+    {
+      text: "Intervalo Máximo (minutos)",
+      type: "text",
+      field: "startInterval",
+    },
+    {
+      text: "Horário Preferido do intervalo",
+      type: "text",
+      field: "endInterval",
+    },
+    {
+      text: "Duração Preferida do Intervalo (minutos)",
+      type: "text",
+      field: "exitWork",
+    },
+  ];
 
   return (
     <>
@@ -36,12 +64,74 @@ function App() {
             menu={menu}
             status={status}
             setStatus={setStatus}
+            entrada={entrada}
+            setEntrada={setEntrada}
+            horaAtual={horaAtual}
+            setHoraAtual={setHoraAtual}
+            startInterval={startInterval}
+            setStartInterval={setStartInterval}
+            endInterval={endInterval}
+            setEndInterval={setEndInterval}
+            exitWork={exitWork}
+            setExitWork={setExitWork}
           />
 
           {menu === "manual" && (
             <>
               {/* Entrada Manual */}
-              <ManualRegistration />
+              <ManualRegistration
+                entrada={entrada}
+                setEntrada={setEntrada}
+                startInterval={startInterval}
+                setStartInterval={setStartInterval}
+                endInterval={endInterval}
+                setEndInterval={setEndInterval}
+                exitWork={exitWork}
+                setExitWork={setExitWork}
+              />
+            </>
+          )}
+
+          {menu === "config" && (
+            <>
+              <div className="max-w-7xl mx-auto px-6">
+                <ContainerBorder>
+                  <h1 className="text-white font-semibold">
+                    Configuração de Jornada
+                  </h1>
+                  <p className="text-neutral-500 text-sm">
+                    Configure sua jornada de trabalho e preferências de
+                    intervalo
+                  </p>
+
+                  {labels.map((label) => {
+                    const id = `input-${label.text
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`;
+
+                    return (
+                      <Label
+                        key={id}
+                        text={label.text}
+                        type={label.type}
+                        id={id}
+                        htmlFor={id}
+                        value={
+                          label.field === "entrada"
+                            ? entrada
+                            : label.field === "startInterval"
+                            ? startInterval
+                            : label.field === "endInterval"
+                            ? endInterval
+                            : label.field === "exitWork"
+                            ? exitWork
+                            : undefined
+                        }
+                      />
+                    );
+                  })}
+                </ContainerBorder>
+              </div>
             </>
           )}
         </div>
