@@ -2,6 +2,7 @@ import ContainerBorder from "./ContainerBorder";
 import { SquarePen, Save } from "lucide-react";
 import Label from "./Label";
 import Button from "./Button";
+import Container from "./Container";
 
 const ManualRegistration = ({
   entrada,
@@ -50,7 +51,7 @@ const ManualRegistration = ({
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6">
+     <Container>
       <ContainerBorder>
         <div className="text-white font-semibold flex gap-2 items-center">
           <SquarePen size={16} />
@@ -93,7 +94,7 @@ const ManualRegistration = ({
           </Button>
         </div>
       </ContainerBorder>
-    </div>
+     </Container>
   );
 };
 

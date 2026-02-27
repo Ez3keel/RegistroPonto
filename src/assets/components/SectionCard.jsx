@@ -1,7 +1,7 @@
 import Card from "./Card";
 import { Clock4, TrendingUp, Loader, Calendar } from "lucide-react";
 
-const SectionCard = ({status}) => {
+const SectionCard = ({ status }) => {
   return (
     <>
       {/* Horas hoje */}

@@ -31,25 +31,23 @@ const Header = () => {
     setDiaSemana(
       `${days[dayOfweek]}, ${NumberOfMonth} de ${AllMonths[
         Month
-      ].toLowerCase()} de ${year} `
+      ].toLowerCase()} de ${year} `,
     );
   }, []);
-
   return (
-    <>
-      <header className="flex justify-between items-center p-8">
-        <div className="space-y-1.5">
-          <h1 className="text-white text-3xl font-bold ">Controle de Ponto</h1>
-          <p className="text-muted-foreground">
-            Gerencie seus horários de trabalho de forma eficiente
-          </p>
-        </div>
-        <p className="flex gap-2 items-center justify-center text-sm text-muted-foreground">
-          <Calendar size={16} />
-          {diaSemana}
+    <header className="flex flex-col desktop:flex-row justify-between items-start desktop:items-center p-8">
+      <div className="space-y-1.5 w-full desktop:w-auto">
+        <h1 className="text-white text-3xl font-bold">Controle de Ponto</h1>
+        <p className="text-muted-foreground">
+          Gerencie seus horários de trabalho de forma eficiente
         </p>
-      </header>
-    </>
+      </div>
+
+      <p className="flex gap-2 items-center text-sm text-muted-foreground w-full desktop:w-auto justify-start desktop:justify-end mt-4 desktop:mt-0">
+        <Calendar size={16} />
+        {diaSemana}
+      </p>
+    </header>
   );
 };
 

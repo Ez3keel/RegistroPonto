@@ -23,7 +23,7 @@ const TimerIncrement = ({ enable, textColor, text }) => {
   };
   return (
     <div className="rounded-xl bg-[#141413] p-4 mt-4 flex-1 min-w-[15rem] max-w-[20rem]">
-      <div className="text-sm font-">{text}</div>
+      <div className="text-sm text-neutral-400">{text}</div>
       <div className={`${textColor} text-2xl font-semibold`}>
         {formatarTempo(segundos)}
       </div>

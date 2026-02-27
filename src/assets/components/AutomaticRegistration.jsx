@@ -4,6 +4,7 @@ import Button from "./Button";
 import { Clock4, Play, Pause } from "lucide-react";
 import WorkingTimer from "./WorkingTimer";
 import Interval from "./Interval";
+import Container from "./Container";
 
 const AutomaticRegistration = ({
   menu,
@@ -20,12 +21,6 @@ const AutomaticRegistration = ({
   exitWork,
   setExitWork,
 }) => {
-  // const [entrada, setEntrada] = useState("");
-  // const [horaAtual, setHoraAtual] = useState("");
-  // const [startInterval, setStartInterval] = useState("");
-  // const [endInterval, setEndInterval] = useState("");
-  // const [exitWork, setExitWork] = useState("");
-
   const statusColors = {
     Inativo: "bg-stone-900 text-neutral-200",
     Intervalo: "bg-orange-400 text-white",
@@ -36,8 +31,9 @@ const AutomaticRegistration = ({
     const agora = new Date();
     const horas = agora.getHours().toString().padStart(2, "0");
     const minutos = agora.getMinutes().toString().padStart(2, "0");
+    const segundos = agora.getSeconds().toString().padStart(2, "0");
 
-    setEntrada(`${horas}:${minutos}`);
+    setEntrada(`${horas}:${minutos}:${segundos}`);
     setStatus("Trabalhando");
   };
 
@@ -61,7 +57,7 @@ const AutomaticRegistration = ({
   return (
     <>
       {menu === "auto" && (
-        <div className="max-w-7xl mx-auto px-6">
+        <Container>
           <ContainerBorder>
             <div className="flex justify-center flex-col">
               <h1 className="flex gap-2 font-semibold text-neutral-200">
@@ -126,7 +122,7 @@ const AutomaticRegistration = ({
               </div>
             </div>
           </ContainerBorder>
-        </div>
+        </Container>
       )}
     </>
   );

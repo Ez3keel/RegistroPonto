@@ -1,5 +1,6 @@
 import "./App.css";
 
+import Container from "./assets/components/Container";
 import SectionCard from "./assets/components/SectionCard";
 import Header from "./assets/components/Header";
 import ButtonMenuConfig from "./assets/components/ButtonMenuConfig";
@@ -9,6 +10,8 @@ import { useState } from "react";
 import ManualRegistration from "./assets/components/ManualRegistration";
 import ContainerBorder from "./assets/components/ContainerBorder";
 import Label from "./assets/components/Label";
+
+import { Button } from "@/components/ui/button";
 
 function App() {
   const [status, setStatus] = useState("Inativo");
@@ -66,7 +69,8 @@ function App() {
             setStatus={setStatus}
             entrada={entrada}
             setEntrada={setEntrada}
-            horaAtual={horaAtual}
+            //horaAtual={horaAtual.substring(0, 5)} //FORMATA A HORA
+            horaAtual={horaAtual} //FORMATA A HORA
             setHoraAtual={setHoraAtual}
             startInterval={startInterval}
             setStartInterval={setStartInterval}
@@ -94,7 +98,7 @@ function App() {
 
           {menu === "config" && (
             <>
-              <div className="max-w-7xl mx-auto px-6">
+              <Container>
                 <ContainerBorder>
                   <h1 className="text-white font-semibold">
                     Configuração de Jornada
@@ -120,18 +124,20 @@ function App() {
                           label.field === "entrada"
                             ? entrada
                             : label.field === "startInterval"
-                            ? startInterval
-                            : label.field === "endInterval"
-                            ? endInterval
-                            : label.field === "exitWork"
-                            ? exitWork
-                            : undefined
+                              ? startInterval
+                              : label.field === "endInterval"
+                                ? endInterval
+                                : label.field === "exitWork"
+                                  ? exitWork
+                                  : undefined
                         }
                       />
                     );
                   })}
                 </ContainerBorder>
-              </div>
+              </Container>
+
+              <Button>Click me</Button>
             </>
           )}
         </div>

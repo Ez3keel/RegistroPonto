@@ -1,0 +1,15 @@
+
+
+
+
+arrumar a hora do fim de intervalo que aparece os segundos - feito
+
+Saida tbm - feito
+
+Hora de entrada começa sem os segundos - feito
+
+Verificar opção de editar horário - 
+
+Ajustar o layer do Header no mobile - feito
+
+Problema com o TimerIncrement toda vez que mudo o menu ele começa do zero - 

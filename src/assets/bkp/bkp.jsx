@@ -60,14 +60,9 @@ function App() {
   // 930 % 60 = 30 minutos (930 ÷ 60 = 15 com resto 30)
   // Isso nos dá os minutos que não completaram uma hora extra
 
-  
-  
-
-  
     return `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
   
   }
-
 
   const handleTimeChange = (e) => {
     const timeValue = e.target.value;
@@ -78,7 +73,6 @@ function App() {
   
   }
 
- 
   return (
     <>
       <div className='bg-black-500 w-screen h-screen flex justify-center items-center'>
